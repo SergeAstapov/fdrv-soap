@@ -1,18 +1,18 @@
 <?php
-$base_url = implode(array(
-    $_SERVER['REQUEST_SCHEME'] . '://',
-    $_SERVER['HTTP_HOST'],
-    dirname($_SERVER['REQUEST_URI']) . '/'
-));
+    $base_url = implode(array(
+        $_SERVER['REQUEST_SCHEME'] . '://',
+        $_SERVER['HTTP_HOST'],
+        dirname($_SERVER['REQUEST_URI']) . '/'
+    ));
 
-header("Content-Type: text/xml; charset=utf-8");
-header('Cache-Control: no-store, no-cache');
-header('Expires: ' . date('r'));
+    header("Content-Type: text/xml; charset=utf-8");
+    header('Cache-Control: no-store, no-cache');
+    header('Expires: ' . date('r'));
 
-ini_set('display_errors', 1);
-error_reporting(E_ALL & ~E_NOTICE);
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL & ~E_NOTICE);
 
-print '<?xml version="1.0" encoding="utf-8"?>';
+    print '<?xml version="1.0" encoding="utf-8"?>';
 ?>
 
 <definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
