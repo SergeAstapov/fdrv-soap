@@ -1,6 +1,6 @@
 #Entity *IncomePlan*
 
-Created in **Time & Budget** system by unit managers/top managers from page [Yolka](http://timebudget.fedoriv.com/budget).
+Is created in **Time & Budget** system by unit managers/top managers from page **Yolka**.
 Exported *from* **Time & Budget** *into* **1C** by invoking *getIncomePlan* operation.
 
 ####*IncomePlan* entity fields:
@@ -17,7 +17,7 @@ Exported *from* **Time & Budget** *into* **1C** by invoking *getIncomePlan* oper
 ####Example request about actual income sent from 1C to **Time & Budget** system:
 
 ```xml
-<incomeFact>
+<incomePlan>
   <entry_id>1</entry_id>
   <unit_id>100</unit_id>
   <unit_title>unit 1</unit_title>
@@ -27,17 +27,17 @@ Exported *from* **Time & Budget** *into* **1C** by invoking *getIncomePlan* oper
   <month>10</month>
   <value>1000</value>
   <comment>comment 1</comment>
-</incomeFact>
+</incomePlan>
 ```
 
 ####Example from **Time & Budget** system
 ![Budget Plan preview example](http://astapov.in.ua/screenshots/BudgetPlan.jpg)
 
 ####Connection between request fields and **Time & Budget** system screen:
-*unit_id* - based on **1**, used internally
-*unit_title* - **1**
-*brand_id* - based on **2**, used internally
-*brand_title* - **2**
-*year*, *month* - **3**
-*value* - **5**
-*comment* - **6**
+*unit_id* - based on **1**, used internally  
+*unit_title* - **1**  
+*brand_id* - based on **2**, used internally  
+*brand_title* - **2**  
+*year*, *month* - **3**  
+*value* - **5**  
+*comment* - **6**  
