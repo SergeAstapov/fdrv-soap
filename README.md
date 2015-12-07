@@ -38,6 +38,6 @@ Exported *from* **Time & Budget** *into* **1C** by invoking *getIncomePlan* oper
 *unit_title* - **1**  
 *brand_id* - based on **2**, used internally  
 *brand_title* - **2**  
-*year*, *month* - **3**  
+*year*, *month* - made by **3**  
 *value* - **5**  
 *comment* - **6**  
