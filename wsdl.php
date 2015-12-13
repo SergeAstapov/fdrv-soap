@@ -1,9 +1,11 @@
 <?php
-    $base_url = implode(array(
-        $_SERVER['REQUEST_SCHEME'] . '://',
-        $_SERVER['HTTP_HOST'],
-        dirname($_SERVER['REQUEST_URI']) . '/'
-    ));
+    $is_https = isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on';
+    $http_protocol = $is_https ? 'https' : 'http';
+    $targetNamespace =
+
+    $base_url = $http_protocol . '://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['REQUEST_URI']) . '/';
+
+    $targetNamespace = $http_protocol . '://' . $_SERVER['HTTP_HOST'] . '/';
 
     header("Content-Type: text/xml; charset=utf-8");
     header('Cache-Control: no-store, no-cache');
@@ -19,7 +21,7 @@
              xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
-             xmlns:tns="http://<?php print $_SERVER['HTTP_HOST']; ?>/"
+             xmlns:tns="<?php print $targetNamespace; ?>"
              xmlns:xs="http://www.w3.org/2001/XMLSchema"
              xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
              xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
@@ -30,7 +32,7 @@
                    xmlns="http://www.w3.org/2001/XMLSchema"
                    xmlns:xs="http://www.w3.org/2001/XMLSchema"
                    elementFormDefault="qualified"
-                   targetNamespace="http://<?php print $_SERVER['HTTP_HOST']; ?>/">
+                   targetNamespace="<?php print $targetNamespace; ?>">
             <!-- Complex types definition -->
             <xs:complexType name="IncomePlan">
                 <xs:sequence>
