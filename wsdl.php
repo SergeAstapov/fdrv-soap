@@ -72,8 +72,11 @@
                     <element name="entry_id" type="decimal" minOccurs="1" maxOccurs="1" />
                     <element name="unit_id" type="decimal" minOccurs="1" maxOccurs="1" />
                     <element name="unit_title" type="string" minOccurs="1" maxOccurs="1" />
+                    <element name="client_id" type="decimal" minOccurs="1" maxOccurs="1" />
+                    <element name="client_title" type="string" minOccurs="1" maxOccurs="1" />
                     <element name="brand_id" type="decimal" minOccurs="1" maxOccurs="1" />
                     <element name="brand_title" type="string" minOccurs="1" maxOccurs="1" />
+                    <element name="product_type" type="string" minOccurs="1" maxOccurs="1" />
                     <element name="date" type="dateTime" minOccurs="1" maxOccurs="1" />
                     <element name="value" type="decimal" minOccurs="1" maxOccurs="1" />
                     <element name="comment" type="string" minOccurs="1" maxOccurs="1" />
@@ -87,6 +90,8 @@
                     <element name="entry_id" type="decimal" minOccurs="1" maxOccurs="1" />
                     <element name="unit_id" type="decimal" minOccurs="1" maxOccurs="1" />
                     <element name="unit_title" type="string" minOccurs="1" maxOccurs="1" />
+                    <element name="client_id" type="decimal" minOccurs="1" maxOccurs="1" />
+                    <element name="client_title" type="string" minOccurs="1" maxOccurs="1" />
                     <element name="brand_id" type="decimal" minOccurs="1" maxOccurs="1" />
                     <element name="brand_title" type="string" minOccurs="1" maxOccurs="1" />
                     <element name="date" type="dateTime" minOccurs="1" maxOccurs="1" />
