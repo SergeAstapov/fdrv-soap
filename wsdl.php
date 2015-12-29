@@ -32,10 +32,11 @@
                    xmlns="http://www.w3.org/2001/XMLSchema"
                    xmlns:xs="http://www.w3.org/2001/XMLSchema"
                    elementFormDefault="qualified"
+                   xmlns:tb="<?php print $targetNamespace; ?>"
                    targetNamespace="<?php print $targetNamespace; ?>">
             <!-- Complex types definition -->
-            <xs:complexType name="IncomePlan">
-                <xs:sequence>
+            <complexType name="IncomePlan">
+                <sequence>
                     <element name="entry_id" type="decimal" minOccurs="1" maxOccurs="1" />
                     <element name="unit_id" type="decimal" minOccurs="1" maxOccurs="1" />
                     <element name="unit_title" type="string" minOccurs="1" maxOccurs="1" />
@@ -47,11 +48,11 @@
                     <element name="month" type="decimal" minOccurs="1" maxOccurs="1" />
                     <element name="value" type="decimal" minOccurs="1" maxOccurs="1" />
                     <element name="comment" type="string" minOccurs="1" maxOccurs="1" />
-                </xs:sequence>
-            </xs:complexType>
+                </sequence>
+            </complexType>
 
-            <xs:complexType name="IncomeFact">
-                <xs:sequence>
+            <complexType name="IncomeFact">
+                <sequence>
                     <element name="entry_id" type="decimal" minOccurs="1" maxOccurs="1" />
                     <element name="unit_id" type="decimal" minOccurs="1" maxOccurs="1" />
                     <element name="unit_title" type="string" minOccurs="1" maxOccurs="1" />
@@ -63,12 +64,12 @@
                     <element name="month" type="decimal" minOccurs="1" maxOccurs="1" />
                     <element name="value" type="decimal" minOccurs="1" maxOccurs="1" />
                     <element name="comment" type="string" minOccurs="1" maxOccurs="1" />
-                </xs:sequence>
-            </xs:complexType>
+                </sequence>
+            </complexType>
 
 
-            <xs:complexType name="ExpensePlan">
-                <xs:sequence>
+            <complexType name="ExpensePlan">
+                <sequence>
                     <element name="entry_id" type="decimal" minOccurs="1" maxOccurs="1" />
                     <element name="unit_id" type="decimal" minOccurs="1" maxOccurs="1" />
                     <element name="unit_title" type="string" minOccurs="1" maxOccurs="1" />
@@ -82,11 +83,11 @@
                     <element name="comment" type="string" minOccurs="1" maxOccurs="1" />
                     <element name="author_email" type="string" minOccurs="1" maxOccurs="1" />
                     <element name="currency" type="string" minOccurs="1" maxOccurs="1" />
-                </xs:sequence>
-            </xs:complexType>
+                </sequence>
+            </complexType>
 
-            <xs:complexType name="ExpenseFact">
-                <xs:sequence>
+            <complexType name="ExpenseFact">
+                <sequence>
                     <element name="entry_id" type="decimal" minOccurs="1" maxOccurs="1" />
                     <element name="unit_id" type="decimal" minOccurs="1" maxOccurs="1" />
                     <element name="unit_title" type="string" minOccurs="1" maxOccurs="1" />
@@ -97,100 +98,100 @@
                     <element name="date" type="dateTime" minOccurs="1" maxOccurs="1" />
                     <element name="value" type="decimal" minOccurs="1" maxOccurs="1" />
                     <element name="comment" type="string" minOccurs="1" maxOccurs="1" />
-                </xs:sequence>
-            </xs:complexType>
+                </sequence>
+            </complexType>
 
             <!-- Collections definition -->
-            <xs:complexType name="IncomePlanList">
-                <xs:sequence>
-                    <xs:element minOccurs="1" maxOccurs="unbounded" name="incomePlan" type="IncomePlan"/>
-                </xs:sequence>
-            </xs:complexType>
+            <complexType name="IncomePlanList">
+                <sequence>
+                    <element minOccurs="1" maxOccurs="unbounded" name="incomePlan" type="tb:IncomePlan"/>
+                </sequence>
+            </complexType>
 
-            <xs:complexType name="IncomeFactList">
-                <xs:sequence>
-                    <xs:element minOccurs="1" maxOccurs="unbounded" name="incomeFact" type="incomeFact"/>
-                </xs:sequence>
-            </xs:complexType>
+            <complexType name="IncomeFactList">
+                <sequence>
+                    <element minOccurs="1" maxOccurs="unbounded" name="incomeFact" type="tb:IncomeFact"/>
+                </sequence>
+            </complexType>
 
 
-            <xs:complexType name="ExpensesPlanList">
-                <xs:sequence>
-                    <xs:element minOccurs="1" maxOccurs="unbounded" name="expensePlan" type="ExpensePlan"/>
-                </xs:sequence>
-            </xs:complexType>
+            <complexType name="ExpensesPlanList">
+                <sequence>
+                    <element minOccurs="1" maxOccurs="unbounded" name="expensePlan" type="tb:ExpensePlan"/>
+                </sequence>
+            </complexType>
 
-            <xs:complexType name="ExpensesFactList">
-                <xs:sequence>
-                    <xs:element minOccurs="1" maxOccurs="unbounded" name="expenseFact" type="ExpenseFact"/>
-                </xs:sequence>
-            </xs:complexType>
+            <complexType name="ExpensesFactList">
+                <sequence>
+                    <element minOccurs="1" maxOccurs="unbounded" name="expenseFact" type="tb:ExpenseFact"/>
+                </sequence>
+            </complexType>
 
             <!-- Request/Response envelope definition -->
-            <xs:element name="IncomePlanRequest">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="token" type="string" minOccurs="1" maxOccurs="1" />
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="IncomePlanResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="incomePlanList" type="IncomePlanList" />
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
+            <element name="IncomePlanRequest">
+                <complexType>
+                    <sequence>
+                        <element name="token" type="string" minOccurs="1" maxOccurs="1" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="IncomePlanResponse">
+                <complexType>
+                    <sequence>
+                        <element name="incomePlanList" type="tb:IncomePlanList" />
+                    </sequence>
+                </complexType>
+            </element>
 
 
-            <xs:element name="IncomeFactRequest">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="token" type="string" minOccurs="1" maxOccurs="1" />
-                        <xs:element name="incomeFactList" type="IncomeFactList" />
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="IncomeFactResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="status" type="xs:boolean" />
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
+            <element name="IncomeFactRequest">
+                <complexType>
+                    <sequence>
+                        <element name="token" type="string" minOccurs="1" maxOccurs="1" />
+                        <element name="incomeFactList" type="tb:IncomeFactList" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="IncomeFactResponse">
+                <complexType>
+                    <sequence>
+                        <element name="status" type="boolean" />
+                    </sequence>
+                </complexType>
+            </element>
 
 
-            <xs:element name="ExpensesPlanRequest">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="token" type="string" minOccurs="1" maxOccurs="1" />
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="ExpensesPlanResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="expensesPlanList" type="ExpensesPlanList" />
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
+            <element name="ExpensesPlanRequest">
+                <complexType>
+                    <sequence>
+                        <element name="token" type="string" minOccurs="1" maxOccurs="1" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="ExpensesPlanResponse">
+                <complexType>
+                    <sequence>
+                        <element name="expensesPlanList" type="tb:ExpensesPlanList" />
+                    </sequence>
+                </complexType>
+            </element>
 
 
-            <xs:element name="ExpensesFactRequest">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="expensesFactList" type="ExpensesFactList" />
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
-            <xs:element name="ExpensesFactResponse">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element name="token" type="string" minOccurs="1" maxOccurs="1" />
-                        <xs:element name="status" type="xs:boolean" />
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
+            <element name="ExpensesFactRequest">
+                <complexType>
+                    <sequence>
+                        <element name="expensesFactList" type="tb:ExpensesFactList" />
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="ExpensesFactResponse">
+                <complexType>
+                    <sequence>
+                        <element name="token" type="string" minOccurs="1" maxOccurs="1" />
+                        <element name="status" type="boolean" />
+                    </sequence>
+                </complexType>
+            </element>
         </xs:schema>
     </types>
 
